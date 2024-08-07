@@ -11,19 +11,7 @@
     overflow: hidden; /* Prevents overflow of inner elements */
 }
 
-/* Parallax star background */
-.sec_sp::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="0.3" fill="white"/><circle cx="20" cy="30" r="0.3" fill="white"/><circle cx="30" cy="20" r="0.3" fill="white"/><circle cx="40" cy="40" r="0.3" fill="white"/><circle cx="50" cy="10" r="0.3" fill="white"/><circle cx="70" cy="30" r="0.3" fill="white"/><circle cx="80" cy="20" r="0.3" fill="white"/><circle cx="90" cy="40" r="0.3" fill="white"/><circle cx="60" cy="60" r="0.3" fill="white"/><circle cx="10" cy="80" r="0.3" fill="white"/><circle cx="50" cy="70" r="0.3" fill="white"/><circle cx="90" cy="90" r="0.3" fill="white"/></svg>') repeat;
-    z-index: 0; /* Send the background behind other content */
-    opacity: 0.5; /* Slight transparency for the star background */
-    animation: moveStars 60s linear infinite; /* Star movement animation */
-}
+
 
 @keyframes moveStars {
     from {
