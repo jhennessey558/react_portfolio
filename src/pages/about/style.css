@@ -1,53 +1,170 @@
 .sec_sp {
-    margin-bottom: calc(3rem + 5.128vw)
+    margin-bottom: calc(3rem + 5.128vw);
+    padding: 20px;   
+    border-radius: 10px;   
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.25),   
+        0 16px 40px rgba(0, 0, 0, 0.6),   
+        0 24px 50px rgba(0, 0, 0, 0.4);   
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    position: relative;
+    overflow: hidden; /* Prevents overflow of inner elements */
+}
+
+/* Parallax star background */
+.sec_sp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="0.3" fill="white"/><circle cx="20" cy="30" r="0.3" fill="white"/><circle cx="30" cy="20" r="0.3" fill="white"/><circle cx="40" cy="40" r="0.3" fill="white"/><circle cx="50" cy="10" r="0.3" fill="white"/><circle cx="70" cy="30" r="0.3" fill="white"/><circle cx="80" cy="20" r="0.3" fill="white"/><circle cx="90" cy="40" r="0.3" fill="white"/><circle cx="60" cy="60" r="0.3" fill="white"/><circle cx="10" cy="80" r="0.3" fill="white"/><circle cx="50" cy="70" r="0.3" fill="white"/><circle cx="90" cy="90" r="0.3" fill="white"/></svg>') repeat;
+    z-index: 0; /* Send the background behind other content */
+    opacity: 0.5; /* Slight transparency for the star background */
+    animation: moveStars 60s linear infinite; /* Star movement animation */
+}
+
+@keyframes moveStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+.sec_sp:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.3),   
+        0 20px 50px rgba(0, 0, 0, 0.7),   
+        0 30px 60px rgba(0, 0, 0, 0.5);   
+}
+
+/* Floating bubbles */
+.sec_sp::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Start below the container */
+    width: 20px; /* Bubble width */
+    height: 20px; /* Bubble height */
+    border-radius: 50%; /* Make it circular */
+    background: rgba(255, 255, 255, 0.7); /* Light color for bubbles */
+    animation: float 5s ease-in-out infinite; /* Animation for floating */
+    opacity: 0.6; /* Slight transparency */
+    left: 20%; /* Position the bubble */
+    animation-delay: 0s; /* Delay for the bubble */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); /* Start at the bottom */
+    }
+    50% {
+        transform: translateY(-30px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Return to start */
+    }
+}
+
+/* Animated dog */
+.animated-dog {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center align */
+    animation: bounce 1s infinite; /* Bouncing animation */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px); /* Bounce height */
+    }
+    60% {
+        transform: translateY(-5px); /* Slight bounce */
+    }
+}
+
+/* Table styles */
+.table {
+    width: 100%; /* Ensure table takes full width */
+    border-collapse: collapse; /* Collapse borders for a cleaner look */
 }
 
 .table td,
 .table th {
     color: var(--text-color);
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--light-border-color);
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
 }
 
+.table tr:hover {
+    background-color: rgba(0, 123, 255, 0.3); /* Light blue on row hover */
+    transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+/* Border style */
 .t_border {
     border-color: var(--text-color) !important;
 }
 
+/* Progress title styles */
 .progress-title {
-    font-size: 16px;
+    font-size: 24px; /* Larger font size */
     font-weight: 700;
-    margin: 15px 0 20px;
-    font-family: 'Raleway';
+    margin: 15px 0 10px;
+    font-family: 'Raleway', sans-serif;
+    color: #fff; /* Changed to white */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Stronger text shadow */
 }
 
-.progress {
-    height: 5px;
-    background: var(--secondary);
-    border-radius: 0;
-    box-shadow: none;
-    margin-bottom: 30px;
-    overflow: visible;
+/* Section title styles */
+.section-title {
+    font-size: 60px; /* Larger title size */
+    color: #ffcc00; /* Bright yellow */
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeInUp 0.5s ease; /* Fade-in animation */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Stronger text shadow */
 }
 
-.progress .progress-bar {
-    position: relative;
-    background: var(--text-color);
-    animation: animate-positive 2s;
-    overflow: visible;
-    opacity: 0.9;
+/* Service title styles */
+.service__title {
+    padding: 12px 0;
+    border-bottom: solid 3px #ffcc00; /* Bright yellow */
+    font-size: 24px; /* Larger font size */
+    color: #ffcc00; /* Bright yellow */
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* More pronounced text shadow */
 }
 
-.progress .progress-value {
-    position: absolute;
-    top: -30px;
-    right: 8px;
-    font-size: 17px;
+/* Service category title styles */
+.service-section .service-category-title {
+    padding-bottom: 4px;
     font-weight: bold;
-    font-style: italic;
-    color: var(--text-color);
+    font-size: 20px;
+    color: #ffcc00; /* Bright yellow */
 }
 
-@-webkit-keyframes animate-positive {
+/* Keyframes for animations */
+@keyframes fadeInUp {
     0% {
-        width: 0%;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -55,46 +172,46 @@
     0% {
         width: 0%;
     }
-}
-
-.section-title {
-    font-size: 45px;
-}
-
-.service__title {
-    padding: 8px 0;
-    border-bottom: solid 2px var(--secondary-color);
-}
-
-.service-section .service-category-title {
-    padding-bottom: 4px;
-}
-
-
-/*! CSS Used keyframes */
-
-@-webkit-keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
+    100% {
+        width: 100%; /* Full width on animation */
     }
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 100%, 0);
-        transform: translate3d(0, 100%, 0);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
+/* Progress bar styles */
+.progress {
+    height: 12px; /* Taller progress bar */
+    background: rgba(255, 255, 255, 0.1); /* Light background */
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.3); /* Inner shadow */
+}
+
+/* Progress bar solid color */
+.progress .progress-bar {
+    position: relative;
+    background: #ffcc00; /* Solid yellow background */
+    animation: animate-positive 2s forwards; /* Forward animation */
+    overflow: visible;
+    opacity: 0.9;
+    transition: width 0.5s ease;
+}
+
+/* Progress value styles */
+.progress .progress-value {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Hide skill toggle icon */
+.skill-toggle-icon {
+    display: none; /* Hides any elements with the class 'skill-toggle-icon' */
 }
