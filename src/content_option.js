@@ -12,7 +12,7 @@ const introdata = {
         third: "Lots and lots of codes",
     },
     description: "Senior Software Engineer with over 12 years of experience specializing in full-stack development, cloud computing, and quality assurance. Proven track record of architecting scalable solutions, optimizing performance, and leading cross-functional teams to deliver high-impact software products. Expertise in C#, .NET, and cloud platforms, with a strong focus on creating robust, user-centric applications. Demonstrated ability to drive innovation, mentor junior developers, and translate complex technical concepts for diverse stakeholders.",
-    your_img_url: "https://i.ibb.co/GF3tbDj/landing.png",
+    your_img_url: "/images/landing.png",
 };
 
 const dataabout = {
@@ -90,6 +90,16 @@ const services = [{
     },
 ];
 
+// New portfolio section
+const portfolio = [
+    {
+        name: "Reality Real Estate Platform",
+        description: " an innovative platform designed to revolutionize the real estate industry through cutting-edge technology and AI-powered tools.",
+        imgUrl: "/images/Reality.png",
+        projectUrl: "https://realityrealestate.netlify.app/",
+    },
+    
+];
 
 
 const contactConfig = {
@@ -118,4 +128,5 @@ export {
     contactConfig,
     socialprofils,
     logotext,
+    portfolio,
 };
